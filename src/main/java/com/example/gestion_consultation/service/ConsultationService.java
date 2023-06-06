@@ -8,82 +8,95 @@ import com.example.gestion_consultation.interfaces.Repository;
 import java.util.List;
 
 public class ConsultationService extends BaseService implements Repository<Consultation> {
-    @Override
-    public void start() {
-        session = sessionFactory.openSession();
-    }
 
     @Override
     public void end() {
-        session.close();
         sessionFactory.close();
     }
 
     @Override
     public boolean create(Consultation o) {
-        try{
+        try {
+            session = sessionFactory.openSession();
             session.beginTransaction();
             session.save(o);
             session.getTransaction().commit();
+            session.close();
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
 
     public boolean createFicheSoins(FicheSoins o) {
-        try{
+        try {
+            session = sessionFactory.openSession();
             session.beginTransaction();
             session.save(o);
             session.getTransaction().commit();
+            session.close();
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
 
     public boolean createPrescription(Prescription o) {
-        try{
+        try {
+            session = sessionFactory.openSession();
             session.beginTransaction();
             session.save(o);
             session.getTransaction().commit();
+            session.close();
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
 
     @Override
     public boolean update(Consultation o) {
-        try{
+        try {
+            session = sessionFactory.openSession();
             session.beginTransaction();
             session.update(o);
             session.getTransaction().commit();
+            session.close();
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
 
     @Override
     public boolean delete(Consultation o) {
-        try{
+        try {
+            session = sessionFactory.openSession();
             session.beginTransaction();
             session.delete(o);
             session.getTransaction().commit();
+            session.close();
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
 
     @Override
     public Consultation findById(int id) {
-        return session.get(Consultation.class, id);
+        Consultation consultation;
+        session = sessionFactory.openSession();
+        consultation = session.get(Consultation.class, id);
+        session.close();
+        return consultation;
     }
 
     @Override
     public List<Consultation> findAll() {
-        return session.createQuery("from consultation ", Consultation.class).list();
+        List<Consultation> consultations = null;
+        session = sessionFactory.openSession();
+        consultations =  session.createQuery("from consultation ", Consultation.class).list();
+        session.close();
+        return consultations;
     }
 }

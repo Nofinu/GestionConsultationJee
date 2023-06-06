@@ -19,8 +19,8 @@
       <c:forEach items="${patient.getConsultations()}" var="consultation">
         <div>
             id: ${consultation.getId_Consultation()}
-          fiche de soins : ${consultation.getFicheSoins().getContenu()}
-          ,prescription : ${consultation.getPrescription().getContenu()}
+          ,Date : ${consultation.getDate()}
+            <a href="consultation?id_consult=${consultation.getId_Consultation()}">Details</a>
         </div>
       </c:forEach>
       <a href="consultation?id=${patient.getId_patient()}">Ajout d'une consultation</a>

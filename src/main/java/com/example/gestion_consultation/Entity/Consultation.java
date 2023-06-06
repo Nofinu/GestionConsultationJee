@@ -10,7 +10,6 @@ public class Consultation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_Consultation;
-    @Temporal(TemporalType.DATE)
     private LocalDate date;
    @ManyToOne(fetch = FetchType.EAGER)
    @JoinColumn(name = "id_patient")

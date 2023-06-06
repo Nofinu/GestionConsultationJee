@@ -23,9 +23,7 @@ public class PatientServlet extends HttpServlet {
 
     public void init(){
         patientService = new PatientService();
-        patientService.start();
         consultationService = new ConsultationService();
-        consultationService.start();
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

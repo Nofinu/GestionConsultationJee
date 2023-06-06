@@ -8,24 +8,22 @@ import java.util.List;
 
 public class PatientService extends BaseService implements Repository<Patient> {
 
-    @Override
-    public void start() {
-        session = sessionFactory.openSession();
-    }
+
 
     @Override
     public void end() {
-        session.close();
-        sessionFactory.close();
 
+        sessionFactory.close();
     }
 
     @Override
     public boolean create(Patient o) {
         try{
+            session = sessionFactory.openSession();
             session.beginTransaction();
             session.save(o);
             session.getTransaction().commit();
+            session.close();
             return true;
         }catch (Exception e){
             System.out.println(e.getMessage());
@@ -36,9 +34,11 @@ public class PatientService extends BaseService implements Repository<Patient> {
     @Override
     public boolean update(Patient o) {
         try{
+            session = sessionFactory.openSession();
             session.beginTransaction();
             session.update(o);
             session.getTransaction().commit();
+            session.close();
             return true;
         }catch (Exception e){
             return false;
@@ -48,9 +48,11 @@ public class PatientService extends BaseService implements Repository<Patient> {
     @Override
     public boolean delete(Patient o) {
         try{
+            session = sessionFactory.openSession();
             session.beginTransaction();
             session.delete(o);
             session.getTransaction().commit();
+            session.close();
             return true;
         }catch (Exception e){
             return false;
@@ -59,17 +61,29 @@ public class PatientService extends BaseService implements Repository<Patient> {
 
     @Override
     public Patient findById(int id) {
-        return session.get(Patient.class, id);
+        Patient patient;
+        session = sessionFactory.openSession();
+        patient = session.get(Patient.class, id);
+        session.close();
+        return  patient;
     }
 
     @Override
     public List<Patient> findAll() {
-        return session.createQuery("from patient ", Patient.class).list();
+        List<Patient> patients = null;
+        session = sessionFactory.openSession();
+        patients= session.createQuery("from patient ", Patient.class).list();
+        session.close();
+        return patients;
     }
 
     public List<Patient> findByName (String name){
+        List<Patient>patients=null;
+        session = sessionFactory.openSession();
         Query<Patient> patientQuery = session.createQuery("from patient as p where p.nom like :name",Patient.class);
         patientQuery.setParameter("name",name);
-        return patientQuery.getResultList();
+        patients= patientQuery.getResultList();
+        session.close();
+        return patients;
     }
 }

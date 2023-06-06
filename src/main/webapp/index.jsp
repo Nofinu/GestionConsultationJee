@@ -2,12 +2,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>Gestionaire de Consultaion</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
+<h1><%= "Gestionaire de Consultaion" %>
 </h1>
 <br/>
-<a href="hello-servlet">Hello Servlet</a>
+<a href="patient">Liste des patient</a>
 </body>
 </html>

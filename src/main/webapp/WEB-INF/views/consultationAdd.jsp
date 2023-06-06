@@ -11,8 +11,9 @@
     <title>ajout d'une consultation</title>
 </head>
 <body>
+        <h1>Ajout d'une consultation</h1>
       <form action="#" method="post">
-        <input type="date" name="date" id="date">
+        <input type="date" name="date" id="date" required>
           <button> send</button>
       </form>
 </body>
