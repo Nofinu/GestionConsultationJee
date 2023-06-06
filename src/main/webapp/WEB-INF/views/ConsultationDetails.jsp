@@ -10,6 +10,7 @@
 <html>
 <head>
     <title>Details de la consultation</title>
+    <jsp:include page="../includes/head.jsp" />
 </head>
 <body>
       <h1>consultation du ${consultation.getDate()}</h1>
@@ -21,7 +22,7 @@
           <c:when test="${consultation.getPrescription() == null}">
               <form action="prescription?id=${consultation.getId_Consultation()}" method="post">
                   <label >prescription :</label>
-                  <textarea name="prescription" id="prescription" cols="30" rows="10" style="resize: none"></textarea>
+                  <textarea name="prescription" id="prescription" cols="30" rows="10" style="resize: none" required></textarea>
                   <button>ajouter</button>
               </form>
           </c:when>
@@ -36,7 +37,7 @@
           <c:when test="${consultation.getFicheSoins() == null}">
               <form action="fiche_soins?id=${consultation.getId_Consultation()}" method="post">
                   <label >Fiche de soins :</label>
-                  <textarea name="fiche_soins" id="fiche_soins" cols="30" rows="10" style="resize: none"></textarea>
+                  <textarea name="fiche_soins" id="fiche_soins" cols="30" rows="10" style="resize: none" required></textarea>
                   <button>ajouter</button>
               </form>
           </c:when>

@@ -38,13 +38,15 @@ public class ConsultationServlet extends HttpServlet {
             request.getRequestDispatcher(Description.PATH_VIEWS+"consultationAdd.jsp").forward(request,response);
         }
     }
-    public void doPost (HttpServletRequest request , HttpServletResponse response){
+    public void doPost (HttpServletRequest request , HttpServletResponse response) throws IOException {
         LocalDate date = LocalDate.parse(request.getParameter("date"));
         int id = Integer.parseInt(request.getParameter("id"));
         Patient patient = patientService.findById(id);
         if(patient != null){
             Consultation consultation = new Consultation(date,patient);
-            consultationService.create(consultation);
+            if(consultationService.create(consultation)){
+                response.sendRedirect("patient?id="+consultation.getPatient().getId_patient());
+            }
         }
     }
 

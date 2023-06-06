@@ -10,6 +10,7 @@
 <html>
 <head>
     <title>details patient</title>
+    <jsp:include page="../includes/head.jsp" />
 </head>
 <body>
       <div>nom : ${patient.getNom()}</div>

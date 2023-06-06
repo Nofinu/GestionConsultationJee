@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>ajout d'une consultation</title>
+    <jsp:include page="../includes/head.jsp" />
 </head>
 <body>
         <h1>Ajout d'une consultation</h1>

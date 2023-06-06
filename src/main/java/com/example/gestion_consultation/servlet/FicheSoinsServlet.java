@@ -8,6 +8,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+import java.io.IOException;
+
 @WebServlet(name = "fiche_soins",value = "/fiche_soins")
 public class FicheSoinsServlet extends HttpServlet {
     private ConsultationService consultationService;
@@ -15,7 +17,7 @@ public class FicheSoinsServlet extends HttpServlet {
         consultationService = new ConsultationService();
     }
 
-    public void doPost (HttpServletRequest request, HttpServletResponse response){
+    public void doPost (HttpServletRequest request, HttpServletResponse response) throws IOException {
         if(request.getParameter("fiche_soins")!= null && request.getParameter("id")!=null){
             String contenu = request.getParameter("fiche_soins");
             int id = Integer.parseInt(request.getParameter("id"));
@@ -24,7 +26,9 @@ public class FicheSoinsServlet extends HttpServlet {
                 FicheSoins ficheSoins = new FicheSoins(contenu);
                 if(consultationService.createFicheSoins(ficheSoins)){
                     consultation.setFicheSoins(ficheSoins);
-                    consultationService.update(consultation);
+                    if(consultationService.update(consultation)){
+                        response.sendRedirect("consultation?id_consult="+consultation.getId_Consultation());
+                    };
                 }
             }
         }

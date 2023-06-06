@@ -8,6 +8,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+import java.io.IOException;
+
 @WebServlet(name = "prescription",value = "/prescription")
 public class PrescriptionServlet extends HttpServlet {
     private ConsultationService consultationService;
@@ -15,7 +17,7 @@ public class PrescriptionServlet extends HttpServlet {
         consultationService = new ConsultationService();
     }
 
-    public void doPost (HttpServletRequest request, HttpServletResponse response){
+    public void doPost (HttpServletRequest request, HttpServletResponse response) throws IOException {
         if(request.getParameter("prescription")!= null && request.getParameter("id")!=null){
             String contenu = request.getParameter("prescription");
             int id = Integer.parseInt(request.getParameter("id"));
@@ -24,7 +26,9 @@ public class PrescriptionServlet extends HttpServlet {
                 Prescription prescription = new Prescription(contenu);
                 if(consultationService.createPrescription(prescription)){
                     consultation.setPrescription(prescription);
-                    consultationService.update(consultation);
+                    if(consultationService.update(consultation)){
+                        response.sendRedirect("consultation?id_consult="+consultation.getId_Consultation());
+                    }
                 }
             }
         }

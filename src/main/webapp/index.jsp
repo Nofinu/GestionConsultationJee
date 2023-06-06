@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>Gestionaire de Consultaion</title>
+    <jsp:include page="WEB-INF/includes/head.jsp" />
 </head>
 <body>
 <h1><%= "Gestionaire de Consultaion" %>

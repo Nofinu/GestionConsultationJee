@@ -10,6 +10,7 @@
 <html>
 <head>
     <title>Patients</title>
+    <jsp:include page="../includes/head.jsp" />
 </head>
 <body>
         <h1>Liste des patient</h1>
