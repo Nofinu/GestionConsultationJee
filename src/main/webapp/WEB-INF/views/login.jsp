@@ -16,12 +16,12 @@
     <form action="login?type=${type}" method="post" class="formLogin">
         <div>${type} :</div>
         <div class="divLogin">
-            <label >Username :</label>
+            <label for="username">Username :</label>
             <input type="text" name="username" id="username" required class="">
         </div>
 
         <div class="divLogin">
-            <label >Password :</label>
+            <label for="password" >Password :</label>
             <input type="password" name="password" id="password" required>
         </div>
 

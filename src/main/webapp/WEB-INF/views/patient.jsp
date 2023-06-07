@@ -23,7 +23,7 @@
 
 
         <form action="#" method="get">
-            <label>nom du patient :</label>
+            <label for="name">nom du patient :</label>
             <input type="text" name="name" id="name">
             <button>rechercher</button>
         </form>
@@ -32,11 +32,11 @@
             <form action="#" method="post" class="formAddPatient">
                 <div>Ajout d'un Patient :</div>
                 <div class="divForm">
-                    <label >Nom :</label>
+                    <label for="nameEntry" >Nom :</label>
                     <input type="text" name="nameEntry" id="nameEntry">
                 </div>
                 <div class="divForm">
-                    <label >Prenom :</label>
+                    <label for="firstname">Prenom :</label>
                     <input type="text" name="firstname" id="firstname">
                 </div>
                 <button class="btnForm">Ajouter</button>

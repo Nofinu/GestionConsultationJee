@@ -77,8 +77,9 @@ nav{
 
 .buttonSendDate{
     height: 35px;
-    width: 35px;
+    width: 50px;
     color: white;
+    font-size: 18px;
     background-color: green;
     border-radius: 10px;
     border: none;

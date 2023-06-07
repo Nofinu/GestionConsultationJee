@@ -23,7 +23,7 @@
           </c:when>
           <c:when test="${consultation.getPrescription() == null}">
               <form action="prescription?id=${consultation.getId_Consultation()}" method="post" class="formulaireConsultationDetails">
-                  <label >prescription :</label>
+                  <label for="prescription">prescription :</label>
                   <textarea name="prescription" id="prescription" cols="30" rows="10" class="textBox" required></textarea>
                   <button class="btnForm">ajouter</button>
               </form>
@@ -38,7 +38,7 @@
           </c:when>
           <c:when test="${consultation.getFicheSoins() == null}">
               <form action="fiche_soins?id=${consultation.getId_Consultation()}" method="post" class="formulaireConsultationDetails">
-                  <label >Fiche de soins :</label>
+                  <label for="fiche_soins">Fiche de soins :</label>
                   <textarea name="fiche_soins" id="fiche_soins" cols="30" rows="10" class="textBox" required></textarea>
                   <button class="btnForm">ajouter</button>
               </form>
