@@ -10,6 +10,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import java.io.IOException;
@@ -39,13 +40,14 @@ public class ConsultationServlet extends HttpServlet {
         }
     }
     public void doPost (HttpServletRequest request , HttpServletResponse response) throws IOException {
+        HttpSession session = request.getSession();
         LocalDate date = LocalDate.parse(request.getParameter("date"));
-        int id = Integer.parseInt(request.getParameter("id"));
+        int id = (session.getAttribute("idPatient")!=null)? (Integer)session.getAttribute("idPatient") : -1;
         Patient patient = patientService.findById(id);
         if(patient != null){
             Consultation consultation = new Consultation(date,patient);
             if(consultationService.create(consultation)){
-                response.sendRedirect("patient?id="+consultation.getPatient().getId_patient());
+                response.sendRedirect("patient?id="+id);
             }
         }
     }

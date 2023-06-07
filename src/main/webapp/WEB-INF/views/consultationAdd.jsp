@@ -12,10 +12,12 @@
     <jsp:include page="../includes/head.jsp" />
 </head>
 <body>
+        <jsp:include page="../includes/header.jsp" />
+
         <h1>Ajout d'une consultation</h1>
       <form action="#" method="post">
-        <input type="date" name="date" id="date" required>
-          <button> send</button>
+        <input type="date" name="date" id="date" required class="input">
+          <button class="buttonSendDate"> send</button>
       </form>
 </body>
 </html>

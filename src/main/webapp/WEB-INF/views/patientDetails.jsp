@@ -13,18 +13,18 @@
     <jsp:include page="../includes/head.jsp" />
 </head>
 <body>
-      <div>nom : ${patient.getNom()}</div>
-      <div>nom : ${patient.getPrenom()}</div>
+        <jsp:include page="../includes/header.jsp" />
+
+      <div class="patientInfo">nom : ${patient.getNom()} prenom : ${patient.getPrenom()}</div>
 
       <h3>Consultation</h3>
       <c:forEach items="${patient.getConsultations()}" var="consultation">
-        <div>
-            id: ${consultation.getId_Consultation()}
-          ,Date : ${consultation.getDate()}
-            <a href="consultation?id_consult=${consultation.getId_Consultation()}">Details</a>
+        <div class="patientDiv">
+            <b>Date : </b>${consultation.getDate()}
+            <a href="consultation?id_consult=${consultation.getId_Consultation()}" class="link">Details</a>
         </div>
       </c:forEach>
-      <a href="consultation?id=${patient.getId_patient()}">Ajout d'une consultation</a>
+      <a href="consultation" class="linkButton">Ajout d'une consultation</a>
 
 </body>
 </html>

@@ -1,0 +1,148 @@
+body{
+    background-color: #363636;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+nav{
+    margin-bottom: 35px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.formulaireConsultationDetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 50%;
+}
+
+.patientInfo{
+    font-size: 25px;
+}
+
+.linkHeader{
+    text-decoration: none;
+    margin-right: 25px;
+    font-size: 28px;
+    color: #959696;
+
+}
+
+.linkButton{
+    text-decoration: none;
+    background-color: green;
+    border-radius: 10px;
+    color: white;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.listePatientBtn{
+    text-decoration: none;
+    color: black;
+    background-color: #d1cfcf;
+    border-radius: 10px;
+    padding: 8px;
+}
+
+.link{
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    background-color: #d1cfcf;
+    border-radius: 10px;
+    padding: 3px;
+}
+
+.patientDiv{
+    width: 50%;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.input{
+    height: 35px;
+    width: 250px;
+}
+
+.buttonSendDate{
+    height: 35px;
+    width: 35px;
+    color: white;
+    background-color: green;
+    border-radius: 10px;
+    border: none;
+}
+
+.formAddPatient{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-top: 35px;
+}
+
+.divForm{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.btnForm{
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 2px;
+    margin-top: 10px;
+}
+
+.textBox{
+    resize: none;
+    border-radius: 10px;
+    border: none;
+}
+
+.titleConsultationDetails{
+    margin-top: 25px;
+    margin-bottom: 5px;
+}
+
+
+.formLogin{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 35px;
+    width: 500px;
+}
+
+.divLogin{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 10px;
+    width: 350px;
+}
+
+.btnFormLogin{
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 2px;
+    width: 200px;
+    font-size: 18px;
+    margin-top: 10px;
+}

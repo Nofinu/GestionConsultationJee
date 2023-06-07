@@ -9,6 +9,6 @@
 <h1><%= "Gestionaire de Consultaion" %>
 </h1>
 <br/>
-<a href="patient">Liste des patient</a>
+<a href="patient" class="listePatientBtn">Liste des patient</a>
 </body>
 </html>
