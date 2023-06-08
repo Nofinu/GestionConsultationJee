@@ -148,3 +148,34 @@ nav{
     font-size: 18px;
     margin-top: 10px;
 }
+
+.fileTitle{
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.linkFiles{
+    text-decoration: none;
+    background-color: lightgray;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    margin-top: 5px;
+    padding: 5px;
+    font-size: 15px;
+}
+
+.linkFiles:hover{
+    background-color: blue;
+    color: white;
+}
+
+.divLinkFile{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.formAddFile{
+    margin-top: 10px;
+ }

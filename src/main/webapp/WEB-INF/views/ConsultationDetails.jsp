@@ -27,8 +27,24 @@
                   <textarea name="prescription" id="prescription" cols="30" rows="10" class="textBox" required></textarea>
                   <button class="btnForm">ajouter</button>
               </form>
+
           </c:when>
       </c:choose>
+        <div class="fileTitle">liste des fichiers associer :</div>
+        <div class="divLinkFile">
+            <c:forEach items="${consultation.getFiles()}" var="file">
+                <a href="${pageContext.request.contextPath}/${file.getUrl()}" class="linkFiles">${file.getFilename()}</a>
+            </c:forEach>
+        </div>
+
+        <form action="files?id=${consultation.getId_Consultation()}" method="post" enctype="multipart/form-data" class="formAddFile">
+            <div>
+                <input type="file" name="file" required>
+            </div>
+            <div>
+                <button>Ajouter un fichier</button>
+            </div>
+        </form>
 
 
       <h3 class="titleConsultationDetails">Fiche de soins :</h3>

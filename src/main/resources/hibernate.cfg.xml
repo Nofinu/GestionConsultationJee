@@ -9,6 +9,7 @@
         <mapping class="com.example.gestion_consultation.Entity.Prescription"/>
         <mapping class="com.example.gestion_consultation.Entity.FicheSoins"/>
         <mapping class="com.example.gestion_consultation.Entity.User"/>
+        <mapping class="com.example.gestion_consultation.Entity.Files"/>
 
     </session-factory>
 </hibernate-configuration>

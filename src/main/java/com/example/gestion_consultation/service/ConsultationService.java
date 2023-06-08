@@ -2,6 +2,7 @@ package com.example.gestion_consultation.service;
 
 import com.example.gestion_consultation.Entity.Consultation;
 import com.example.gestion_consultation.Entity.FicheSoins;
+import com.example.gestion_consultation.Entity.Files;
 import com.example.gestion_consultation.Entity.Prescription;
 import com.example.gestion_consultation.interfaces.Repository;
 
@@ -42,6 +43,19 @@ public class ConsultationService extends BaseService implements Repository<Consu
     }
 
     public boolean createPrescription(Prescription o) {
+        try {
+            session = sessionFactory.openSession();
+            session.beginTransaction();
+            session.save(o);
+            session.getTransaction().commit();
+            session.close();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean createFiles(Files o) {
         try {
             session = sessionFactory.openSession();
             session.beginTransaction();

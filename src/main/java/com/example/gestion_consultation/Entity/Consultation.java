@@ -3,6 +3,7 @@ package com.example.gestion_consultation.Entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 
 @Entity (name = "consultation")
@@ -11,7 +12,7 @@ public class Consultation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_Consultation;
     private LocalDate date;
-   @ManyToOne(fetch = FetchType.EAGER)
+   @ManyToOne(fetch = FetchType.LAZY)
    @JoinColumn(name = "id_patient")
     private Patient patient;
 
@@ -20,6 +21,9 @@ public class Consultation {
 
     @OneToOne
     private FicheSoins ficheSoins;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<Files> files ;
 
     public Consultation(Patient patient, Prescription prescription, FicheSoins ficheSoins) {
         this.patient = patient;
@@ -73,5 +77,19 @@ public class Consultation {
 
     public void setFicheSoins(FicheSoins ficheSoins) {
         this.ficheSoins = ficheSoins;
+    }
+
+    public List<Files> getFiles() {
+        return files;
+    }
+
+    public void setFiles(List<Files> files) {
+        this.files = files;
+    }
+
+    public void addFile (Files file){
+        if(file !=null){
+            this.files.add(file);
+        }
     }
 }
